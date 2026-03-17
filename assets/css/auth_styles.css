@@ -1,0 +1,304 @@
+body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto;
+            background-image: url('coopmart.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+        }
+        
+        /* Add overlay for better readability */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.85);
+            z-index: -1;
+        }
+        
+        .verify-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .logo-container {
+            text-align: center;
+            margin-bottom: 25px;
+            padding: 10px;
+        }
+
+        .login-logo {
+            max-width: 120px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .login-logo:hover {
+            transform: scale(1.05);
+        }
+        
+        h2 {
+            margin-bottom: 10px;
+            color: #343a40;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        
+        .subtitle {
+            color: #6c757d;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .otp-inputs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 30px 0;
+        }
+        
+        .otp-input {
+            width: 55px;
+            height: 65px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+        
+        .otp-input:focus {
+            border-color: #28a745;
+            box-shadow: 0 0 0 4px rgba(40, 167, 69, 0.1);
+            outline: none;
+            background: white;
+            transform: translateY(-2px);
+        }
+        
+        .timer {
+            font-size: 14px;
+            color: #6c757d;
+            margin: 15px 0;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .timer.expired {
+            background: #f8d7da;
+            color: #721c24;
+            border-color: #f5c6cb;
+        }
+        
+        .resend-btn {
+            background: #f8f9fa;
+            border: 2px solid #28a745;
+            color: #28a745;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 15px;
+            font-size: 14px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            width: 100%;
+        }
+        
+        .resend-btn:hover:not(.disabled) {
+            background: #28a745;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
+        
+        .resend-btn:active:not(.disabled) {
+            transform: translateY(0);
+        }
+        
+        .resend-btn.disabled {
+            background: #e9ecef;
+            border-color: #adb5bd;
+            color: #adb5bd;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .email-display {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 12px;
+            margin: 20px 0;
+            font-weight: 500;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            font-size: 15px;
+        }
+        
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #c3e6cb;
+            text-align: center;
+            animation: slideDown 0.5s ease;
+        }
+        
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #f5c6cb;
+            text-align: center;
+            animation: shake 0.5s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+        
+        .verify-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+        }
+        
+        .verify-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.5);
+        }
+        
+        .verify-btn:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .verify-btn.loading {
+            position: relative;
+            pointer-events: none;
+        }
+        
+        .verify-btn.loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 50%;
+            left: 50%;
+            margin-left: -10px;
+            margin-top: -10px;
+            border: 3px solid transparent;
+            border-top: 3px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .login-link {
+            margin-top: 25px;
+            font-size: 14px;
+            color: #6c757d;
+        }
+        
+        .login-link a {
+            color: #28a745;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .login-link a:hover {
+            color: #218838;
+            text-decoration: underline;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+                background-attachment: scroll;
+            }
+            
+            .verify-container {
+                padding: 30px 25px;
+                max-height: none;
+                border-radius: 15px;
+            }
+            
+            h2 {
+                font-size: 24px;
+            }
+            
+            .login-logo {
+                max-width: 100px;
+            }
+            
+            .otp-input {
+                width: 45px;
+                height: 55px;
+                font-size: 24px;
+            }
+            
+            .verify-btn, .resend-btn {
+                padding: 14px;
+                font-size: 15px;
+            }
+        }
